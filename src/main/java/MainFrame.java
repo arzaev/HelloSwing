@@ -7,13 +7,17 @@ public class MainFrame extends JFrame {
 
     private TextPanel textPanel;
     private JButton btn;
+    private Toolbar toolbar;
 
     public MainFrame() {
         super("Hello World");
         setLayout(new BorderLayout());
 
+        toolbar = new Toolbar();
         btn = new JButton("Click Me!");
         textPanel = new TextPanel();
+
+        toolbar.setTextPanel(textPanel);
 
         btn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -21,6 +25,7 @@ public class MainFrame extends JFrame {
             }
         });
 
+        add(toolbar, BorderLayout.NORTH);
         add(textPanel, BorderLayout.CENTER);
         add(btn, BorderLayout.SOUTH);
 

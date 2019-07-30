@@ -11,7 +11,6 @@ public class MainFrame extends JFrame {
     private FormPanel formPanel;
 
 
-
     public MainFrame() {
         super("Hello World");
         setLayout(new BorderLayout());
@@ -43,6 +42,7 @@ public class MainFrame extends JFrame {
         add(toolbar, BorderLayout.NORTH);
         add(textPanel, BorderLayout.CENTER);
 
+        setMinimumSize(new Dimension(500, 400));
         setSize(600, 500);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
@@ -51,7 +51,6 @@ public class MainFrame extends JFrame {
     private JMenuBar createMenuBar() {
 
         JMenuBar menuBar = new JMenuBar();
-
 
         JMenu fileMenu = new JMenu("File");
         JMenuItem exportDataItem = new JMenuItem("Export Data...");
@@ -77,7 +76,7 @@ public class MainFrame extends JFrame {
 
         showFormItem.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                JCheckBoxMenuItem menuItem = (JCheckBoxMenuItem)e.getSource();
+                JCheckBoxMenuItem menuItem = (JCheckBoxMenuItem) e.getSource();
                 formPanel.setVisible(menuItem.isSelected());
             }
         });
@@ -89,7 +88,13 @@ public class MainFrame extends JFrame {
 
         exitItem.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                System.exit(0);
+                int action = JOptionPane.showConfirmDialog(MainFrame.this,
+                        "Do you want to exit?",
+                        "Confirm Exit",
+                        JOptionPane.OK_CANCEL_OPTION);
+                if (action == JOptionPane.OK_OPTION) {
+                    System.exit(0);
+                }
             }
         });
 

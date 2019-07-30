@@ -3,6 +3,7 @@ import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
 
 public class FormPanel extends JPanel {
 
@@ -83,6 +84,12 @@ public class FormPanel extends JPanel {
         empCombo.setEditable(true);
 
         okBtn = new JButton("OK");
+
+        // Set up mnemonics
+        okBtn.setMnemonic(KeyEvent.VK_O);
+        nameLabel.setDisplayedMnemonic(KeyEvent.VK_N);
+        nameLabel.setLabelFor(nameField);
+
         okBtn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 String name = nameField.getText();

@@ -9,7 +9,14 @@ public class PersonTableModel extends AbstractTableModel {
 
     private List<Person> db;
 
+    private String[] colNames = {"ID", "Name", "Occupation", "Age Category", "Employment Category", "US Citizen", "Tax ID"};
+
     public PersonTableModel() {
+    }
+
+    @Override
+    public String getColumnName(int column) {
+        return colNames[column];
     }
 
     public void setData(List<Person>db) {

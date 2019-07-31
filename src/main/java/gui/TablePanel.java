@@ -17,7 +17,7 @@ public class TablePanel extends JPanel {
 
         setLayout(new BorderLayout());
 
-        add(table, BorderLayout.CENTER);
+        add(new JScrollPane(table), BorderLayout.CENTER);
     }
 
     public void setData(List<Person> db) {

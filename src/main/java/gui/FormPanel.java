@@ -1,5 +1,7 @@
 package gui;
 
+import model.Gender;
+
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
@@ -103,7 +105,7 @@ public class FormPanel extends JPanel {
 
                 String gender = genderGroup.getSelection().getActionCommand();
 
-                System.out.println(empCat);
+                System.out.println(gender);
 
                 FormEvent ev = new FormEvent(this, name, occupation, ageCat.getId(),
                         empCat, taxId, usCitizen, gender);

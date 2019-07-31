@@ -1,5 +1,7 @@
 package gui;
 
+import controller.Controller;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -12,6 +14,7 @@ public class MainFrame extends JFrame {
     private Toolbar toolbar;
     private FormPanel formPanel;
     private JFileChooser fileChooser;
+    private Controller controller;
 
 
     public MainFrame() {
@@ -21,6 +24,8 @@ public class MainFrame extends JFrame {
         toolbar = new Toolbar();
         textPanel = new TextPanel();
         formPanel = new FormPanel();
+
+        controller = new Controller();
 
         fileChooser = new JFileChooser();
         fileChooser.addChoosableFileFilter(new PersonFileFilter());
@@ -35,12 +40,7 @@ public class MainFrame extends JFrame {
 
         formPanel.setFormListener(new FormListener() {
             public void formEventOccurred(FormEvent e) {
-                String name = e.getName();
-                String occupation = e.getOccupation();
-                int ageCat = e.getAgeCategory();
-                String empCat = e.getEmpCategory();
-
-                textPanel.appendText(name + ": " + occupation + ": " + ageCat + ": " + empCat + "\n");
+                controller.addPerson(e);
             }
         });
 

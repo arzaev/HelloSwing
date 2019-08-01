@@ -98,6 +98,8 @@ public class MainFrame extends JFrame {
 
         exitItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_X, ActionEvent.CTRL_MASK));
 
+        importDataItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_I, ActionEvent.CTRL_MASK));
+
         importDataItem.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 if(fileChooser.showOpenDialog(MainFrame.this) == JFileChooser.APPROVE_OPTION) {
